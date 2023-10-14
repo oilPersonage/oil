@@ -17,19 +17,16 @@ function getRandomInt(min, max) {
 }
 
 export function init() {
-
 	positions = items.reduce((final, curr) => [...final, curr.clientWidth + final[final.length - 1]], [0])
 	width = items.map((el) => el.clientWidth)
 
 	animItem.style.width = items[activeIndex].clientWidth + 'px'
 
-
-	clearInterval(interval)
 	interval = setInterval(() => {
 		prevIndex = activeIndex;
 		const next = getRandomInt(0, items.length - 1)
 		activeIndex = next === prevIndex ? getRandomInt(0, items.length - 1) : next;
-
+		console.log(1)
 		anime({
 			targets: animItem,
 			translateY: ['-50%', '-50%'],
@@ -43,5 +40,8 @@ export function init() {
 
 
 window.addEventListener('resize', function resize() {
-	init()
+	positions = items.reduce((final, curr) => [...final, curr.clientWidth + final[final.length - 1]], [0])
+	width = items.map((el) => el.clientWidth)
+
+	animItem.style.width = items[activeIndex].clientWidth + 'px'
 })
