@@ -87,7 +87,10 @@
 @media (max-width: 490px) {
   .card {
     max-width: 100%;
-    min-height: 80vh;
-    max-height: 80vh;
+
+    &__imgWrapper {
+      min-height: 80vh;
+      max-height: 80vh;
+    }
   }
 }
