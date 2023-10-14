@@ -1411,7 +1411,6 @@ function init() {
 
 	positions = items$1.reduce((final, curr) => [...final, curr.clientWidth + final[final.length - 1]], [0]);
 	width = items$1.map((el) => el.clientWidth);
-	console.log(width);
 
 	animItem.style.width = items$1[activeIndex].clientWidth + 'px';
 
@@ -1552,7 +1551,6 @@ function touchMove(ev, item) {
 }
 
 if (isMobile) {
-	console.log(1);
 	const cardsData = cards.map(el => ({el, isAnimated: false}));
 	const itemCaller = (item, callback, hideCallback) => {
 		const visibleCurrent = isInViewport(item.el, true, 0.4);
@@ -1599,4 +1597,4 @@ document.onreadystatechange = function() {
 		init();
 	}
 };
-//# sourceMappingURL=index-7bb5b552.js.map
+//# sourceMappingURL=index-eec601b4.js.map
