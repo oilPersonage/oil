@@ -1,0 +1,52 @@
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 1024px) {
+  .logotype {
+    left: 48px;
+  }
+  .social {
+    right: 48px;
+  }
+  .heading {
+    margin-bottom: 32px;
+  }
+  .works {
+    padding: 0 36px;
+  }
+  .card {
+    min-width: 200px;
+    max-width: 300px;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  body {
+    overflow: visible;
+    padding-bottom: 10vh;
+  }
+  .heading {
+    padding: 0 48px;
+    margin-top: 100px;
+
+    &__jobs {
+      justify-content: stretch;
+      width: 100%;
+
+      span {
+        font-size: 12px;
+        padding: 0 8px;
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        white-space: nowrap;
+      }
+    }
+  }
+  .works  {
+    flex-direction: column;
+    padding: 0 48px;
+  }
+  .card {
+    margin: 0 0 32px;
+  }
+}
