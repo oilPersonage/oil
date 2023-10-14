@@ -18,15 +18,42 @@
   }
 }
 
+@media (max-width: 800px) {
+  h1 {
+    font-size: 18px;
+  }
+  .heading {
+    &__jobs {
+      span {
+        font-size: 12px;
+        padding: 0 8px;
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        white-space: nowrap;
+      }
+    }
+  }
+  .card {
+    &__title {
+      font-size: 14px;
+    }
+
+    &__description {
+      font-size: 12px;
+    }
+  }
+}
+
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
   body {
     overflow: visible;
-    padding-bottom: 10vh;
+    padding-bottom: 6vh;
   }
   .heading {
     padding: 0 48px;
-    margin-top: 100px;
+    margin-top: 68px;
 
     &__jobs {
       justify-content: stretch;
@@ -42,11 +69,23 @@
       }
     }
   }
-  .works  {
+  .works {
     flex-direction: column;
     padding: 0 48px;
   }
   .card {
     margin: 0 0 32px;
+  }
+  .social {
+    &__item, svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .card {
+    max-width: 100%;
   }
 }
