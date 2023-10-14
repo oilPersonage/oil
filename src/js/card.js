@@ -1,4 +1,5 @@
 import {isInViewport} from "./utils/detectVisibleElement.js";
+import {getTouchDirection} from "./utils/getTouchDirection.js";
 
 const items = [...document.querySelectorAll('.card__content')];
 const cards = [...document.querySelectorAll('.card')];
@@ -6,9 +7,16 @@ const cards = [...document.querySelectorAll('.card')];
 const isMobile = window.matchMedia('(max-width: 600px)').matches
 
 const FORCE = 25;
+const MAX_CALL_FOR_DETECT = 5;
+const touch = {
+	x: 0,
+	y: 0
+}
 let dataItems = [];
 let isAnimate = false;
 let timeout = false;
+let countCheckDetection = 0;
+let dirX = false;
 const w = document.body.clientWidth;
 const h = document.body.clientHeight;
 
@@ -27,7 +35,6 @@ function mouseMove({clientX, clientY}, item) {
 	const centerX = left + width / 2;
 	item.nextProgressY = (clientY - centerY) / w
 	item.nextProgressX = (clientX - centerX) / h
-	console.log(window.scrollY, clientY, centerX, top)
 }
 
 function calculateInitData() {
@@ -45,14 +52,22 @@ function calculateInitData() {
 
 calculateInitData()
 
+function touchStart({touches}, item) {
+	const event = touches[0];
+	touch.x = event.clientX;
+	touch.y = event.clientY;
+	item.sizes = item.el.getBoundingClientRect()
+}
+
 dataItems.forEach((item) => {
 	if (isMobile) {
 		item.el.addEventListener('touchmove', (ev) => touchMove(ev, item), {passive: false})
-		item.el.addEventListener('touchstart', () => {
-			item.sizes = item.el.getBoundingClientRect()
-			item.isHover = true
+		item.el.addEventListener('touchstart', (ev) => touchStart(ev, item))
+		item.el.addEventListener('touchend', () => {
+			item.isHover = false;
+			countCheckDetection = 0;
+			dirX = false;
 		})
-		item.el.addEventListener('touchend', () => item.isHover = false)
 	} else {
 		item.el.addEventListener('mouseenter', () => item.isHover = true)
 		item.el.addEventListener('mouseleave', () => item.isHover = false)
@@ -94,14 +109,21 @@ window.addEventListener('resize', function resize() {
 // TOUCH
 
 function touchMove(ev, item) {
-	ev.preventDefault();
-	ev.stopImmediatePropagation();
 	const {touches} = ev;
 	const event = touches[0];
-	mouseMove(event, item)
-	// if (dirX) {
-	// 	f(event)
-	// }
+	countCheckDetection += 1;
+
+	if (countCheckDetection < MAX_CALL_FOR_DETECT) {
+		const {x: isX} = getTouchDirection(event.clientX - touch.x, event.clientY - touch.y)
+		dirX = isX;
+	}
+
+	if (dirX) {
+		item.isHover = true
+		ev.preventDefault();
+		ev.stopImmediatePropagation();
+		mouseMove(event, item)
+	}
 	//
 	// touchStart.prevX = event.clientX / width;
 }
