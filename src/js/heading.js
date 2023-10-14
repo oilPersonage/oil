@@ -20,7 +20,6 @@ export function init() {
 
 	positions = items.reduce((final, curr) => [...final, curr.clientWidth + final[final.length - 1]], [0])
 	width = items.map((el) => el.clientWidth)
-	console.log(width)
 
 	animItem.style.width = items[activeIndex].clientWidth + 'px'
 

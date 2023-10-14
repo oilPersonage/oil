@@ -104,7 +104,6 @@ function touchMove(ev, item) {
 }
 
 if (isMobile) {
-	console.log(1)
 	const cardsData = cards.map(el => ({el, isAnimated: false}))
 	const itemCaller = (item, callback, hideCallback) => {
 		const visibleCurrent = isInViewport(item.el, true, 0.4);
