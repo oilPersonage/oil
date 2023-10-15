@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&display=swap" rel="stylesheet">
   <title>oilPersonage</title>
-  <script type="module" crossorigin src="/oil/assets/index-8a66acaa.js"></script>
-  <link rel="stylesheet" href="/oil/assets/index-050c89a8.css">
+  <script type="module" crossorigin src="/oil/assets/index-72fb3fe7.js"></script>
+  <link rel="stylesheet" href="/oil/assets/index-23c493f3.css">
 </head>
 <body>
 <header>
@@ -236,22 +236,7 @@
 </div>
 <script>
 	if ('paintWorklet' in CSS) {
-		if (navigator.userAgent.includes('Safari')
-			&& !navigator.userAgent.includes('Chrome')) {
-			(async function () {
-				const response = await fetch('./src/js/corner.js');
-				const blob = await response.blob();
-				const reader = new FileReader();
-
-				reader.addEventListener('load', () => {
-					CSS.paintWorklet.addModule(reader.result);
-				});
-
-				reader.readAsText(blob);
-			})();
-		} else {
-			CSS.paintWorklet.addModule('./src/js/corner.js')
-		}
+		CSS.paintWorklet.addModule('./src/js/corner.js')
 	}
 </script>
 
