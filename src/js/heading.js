@@ -26,7 +26,6 @@ export function init() {
 		prevIndex = activeIndex;
 		const next = getRandomInt(0, items.length - 1)
 		activeIndex = next === prevIndex ? getRandomInt(0, items.length - 1) : next;
-		console.log(1)
 		anime({
 			targets: animItem,
 			translateY: ['-50%', '-50%'],

@@ -234,22 +234,7 @@
 </div>
 <script>
 	if ('paintWorklet' in CSS) {
-		if (navigator.userAgent.includes('Safari')
-			&& !navigator.userAgent.includes('Chrome')) {
-			(async function () {
-				const response = await fetch('./src/js/corner.js');
-				const blob = await response.blob();
-				const reader = new FileReader();
-
-				reader.addEventListener('load', () => {
-					CSS.paintWorklet.addModule(reader.result);
-				});
-
-				reader.readAsText(blob);
-			})();
-		} else {
-			CSS.paintWorklet.addModule('./src/js/corner.js')
-		}
+		CSS.paintWorklet.addModule('./src/js/corner.js')
 	}
 </script>
 <script type="module" src="/main.js"></script>
