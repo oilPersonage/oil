@@ -95,7 +95,10 @@
       <div class="card__content">
         <div class="card__imgWrapper mask">
           <img class="card__imgBack" src="./src/photo/lirules_back.png" alt="">
-          <img class="card__imgFront" src="./src/photo/lirules_front.png" alt="">
+          <picture class="card__imgFront">
+            <source srcset="/src/photo/lirules_front.png" media="(min-width: 600px)"/>
+            <img src="/src/photo/lirules_front_mobile.png" alt="lirules front img"/>
+          </picture>
         </div>
         <a href="https://oilpersonage.github.io/Lirules/#/course" target="_blank" class="card__link">
           <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
