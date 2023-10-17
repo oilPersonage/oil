@@ -692,6 +692,7 @@ section {
     background: transparent;
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
   }
   .card__description.maskSmall {
     --smooth-corners: 22;
