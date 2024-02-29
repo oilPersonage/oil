@@ -1399,11 +1399,26 @@ let activeIndex = 0;
 let prevIndex = 0;
 let positions = [];
 let width = [];
+let interval = undefined;
 
 function getRandomInt(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function animate$1() {
+	prevIndex = activeIndex;
+	const next = getRandomInt(0, items$1.length - 1);
+	activeIndex = next === prevIndex ? getRandomInt(0, items$1.length - 1) : next;
+	anime({
+		targets: animItem,
+		translateY: ['-50%', '-50%'],
+		translateX: [positions[prevIndex], positions[activeIndex]],
+		width: [width[prevIndex], width[activeIndex]],
+		easing: 'cubicBezier(.32,0,.73,1)',
+		duration: 1500 * (Math.abs(prevIndex - activeIndex) * 0.7),
+	});
 }
 
 function init() {
@@ -1412,19 +1427,7 @@ function init() {
 
 	animItem.style.width = items$1[activeIndex].clientWidth + 'px';
 
-	setInterval(() => {
-		prevIndex = activeIndex;
-		const next = getRandomInt(0, items$1.length - 1);
-		activeIndex = next === prevIndex ? getRandomInt(0, items$1.length - 1) : next;
-		anime({
-			targets: animItem,
-			translateY: ['-50%', '-50%'],
-			translateX: [positions[prevIndex], positions[activeIndex]],
-			width: [width[prevIndex], width[activeIndex]],
-			easing: 'cubicBezier(.32,0,.73,1)',
-			duration: 1500 * (Math.abs(prevIndex - activeIndex) * 0.7),
-		});
-	}, DURATION);
+	interval = setInterval(animate$1, DURATION);
 }
 
 
@@ -1433,6 +1436,14 @@ window.addEventListener('resize', function resize() {
 	width = items$1.map((el) => el.clientWidth);
 
 	animItem.style.width = items$1[activeIndex].clientWidth + 'px';
+});
+
+document.addEventListener("visibilitychange", function () {
+	if (document.hidden) {
+		clearInterval(interval);
+	} else {
+		interval = setInterval(animate$1, DURATION);
+	}
 });
 
 function isInViewport(element, partiallyVisible = false, percent = 0.3) {
@@ -1677,4 +1688,4 @@ document.onreadystatechange = function () {
 		init();
 	}
 };
-//# sourceMappingURL=index-b5656d62.js.map
+//# sourceMappingURL=index-4ac62d09.js.map
