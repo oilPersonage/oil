@@ -3,12 +3,16 @@ $red: #ff2d2d;
 $green: #54ff2d;
 $blue: #2dc0ff;
 $gray: #f3f3f3;
+$l-gray: #eaeaea;
+$d-gray: #b6b6b6;
 $dark: #212123;
 
 
 $introDuration: 2s;
 $introItemDuration: 8s;
 
+
+$boxShadow: 1px 0 1px rgba(0, 0, 0, 0.03), 0 0px 30px rgba(0, 0, 0, 0.05);
 $showItemEasing: cubic-bezier(0, 0.12, 0.43, 0.99);
 
 $showEasing: cubic-bezier(0.01, 0.74, 1, 1);

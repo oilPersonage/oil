@@ -11,11 +11,11 @@ const social = document.querySelector('.social')
 const DEF_TIMEOUT = 300;
 
 export function hideOverlay() {
-    // overlay.classList.toggle('hideAnimation')
-    // animateItem(overlayLogo, 'hide', 0)
+    overlay.classList.toggle('hideAnimation')
+    animateItem(overlayLogo, 'hide', 0)
 
     setTimeout(() => {
-        // overlay.classList.toggle('hide')
+        overlay.classList.toggle('hide')
     }, DEF_TIMEOUT)
 
     animateItem(headerLogo, 'show', DEF_TIMEOUT + 200)

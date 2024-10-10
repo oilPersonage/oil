@@ -149,6 +149,8 @@
             </div>
         </divdata-href>
     </div>
+    </div>
+<!--    <a href="#" class="portfolio__button popup__button">Портфолио</a>-->
 
     <div class="social">
         <div class="social__item instagram">
@@ -237,7 +239,130 @@
         </div>
     </div>
 </div>
-.div
+<div class="popup" id="popup">
+    <div href="#portfolio" class="popup__topButton popup__button maskSmall">
+        Portfolio
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--dark)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.92 15.8001C19.73 15.8001 19.54 15.7301 19.39 15.5801L12.87 9.06008C12.39 8.58008 11.61 8.58008 11.13 9.06008L4.61002 15.5801C4.32002 15.8701 3.84002 15.8701 3.55002 15.5801C3.26002 15.2901 3.26002 14.8101 3.55002 14.5201L10.07 8.00008C11.13 6.94008 12.86 6.94008 13.93 8.00008L20.45 14.5201C20.74 14.8101 20.74 15.2901 20.45 15.5801C20.3 15.7201 20.11 15.8001 19.92 15.8001Z"/>
+        </svg>
+    </div>
+    <div class="popup__content">
+        <div id="experience" class="popup__wrapper">
+            <div class="portfolio__heading">
+                <h3>FRONT-END DEVELOPER</h3>
+                <div class="portfolio__info">
+                    <p>Мужчина, <span id="portfolio-age">{{age}}</span></p>
+                    <p>Гражданство: РФ</p>
+                </div>
+            </div>
+            <div class="portfolio__skills">
+                <h4>SKILLS <span>. Навыки</span></h4>
+                <ul class="skills__list">
+                    <li class="skills__item">React</li>
+                    <li class="skills__item">Vue</li>
+                    <li class="skills__item">Effector</li>
+                    <li class="skills__item">React-router</li>
+                    <li class="skills__item">Redux (toolkit, saga)</li>
+                    <li class="skills__item">Webpack, Vite, ESLint</li>
+                    <li class="skills__item">Module Federation</li>
+                    <li class="skills__item">Jest</li>
+                    <li class="skills__item">Git</li>
+                    <li class="skills__item">CI/CD</li>
+                    <li class="skills__item">CSS preprocessor (scss, sass)</li>
+                    <li class="skills__item">Next.js</li>
+                    <li class="skills__item">Scrum</li>
+                    <li class="skills__item">Code review</li>
+                    <li class="skills__item">Node.js</li>
+                    <li class="skills__item">Express</li>
+                </ul>
+            </div>
+            <div class="portfolio__experience">
+                <h4>WORK EXPERIENCE <span>. Опыт работы</span></h4>
+                <div>
+                    <ul class="exp__list">
+                        <li class="exp__item mask" v-for="item in data">
+                            <div class="exp__date">
+                                <p>{{item.date[0]}}</p>
+                                <p>{{item.date[1]}}</p>
+                            </div>
+                            <div class="exp__content">
+                                <div class="exp__heading">
+                                    <div class="exp__heading__left">
+                                        <p class="exp__company">{{item.company}}
+                                            <span class="exp__companyType">{{item.job}}</span>
+                                        </p>
+                                        <p class="exp__job maskSmall">{{item.companyType}}</p>
+                                    </div>
+                                    <p class="exp__age maskSmall">{{item.age}}</p>
+                                </div>
+                                <p class="exp__title">Задачи:</p>
+                                <div class="exp__body">
+                                    <ul class="exp__text">
+                                        <li v-for="t in item.responsibilities">{{t}}</li>
+                                    </ul>
+                                    <ul class="exp__skills">
+                                        <li class="maskSmall" v-for="sk in item.skills">{{sk}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="portfolio__education">
+                <div class="education__item">
+                    <h4>EDUCATION <span>. Образование</span></h4>
+                    <p class="education__university">Московский государственный университет леса им
+                        Н.Э. Баумана, Москва</p>
+                    <p class="education__job">Магистр, Бакалавр</p>
+                    <ul class="education__list">
+                        <li>
+                            <p>Факультет: </p>
+                            <p>Лесопромышленный</p>
+                        </li>
+                        <li>
+                            <p>Квалификация: </p>
+                            <p>Лесоинженерное дело</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="education__item">
+                    <h4>Languages <span> . Языки</span></h4>
+                    <ul class="education__list">
+                        <li>
+                            <p>Английский:</p>
+                            <p>А2 Элементарный</p>
+                        </li>
+                        <li>
+                            <p>Русский:</p>
+                            <p>Родной</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="portfolio__skills">
+                <h4>SOFT SKILLS <span>. Гибкие навыки</span></h4>
+                <ul class="skills__list">
+                    <li class="skills__item">Коммуникабельность</li>
+                    <li class="skills__item">Самообучение</li>
+                    <li class="skills__item">Тайм-менеджмент</li>
+                    <li class="skills__item">Работа в команде</li>
+                    <li class="skills__item">Креативность</li>
+                    <li class="skills__item">Эмоциональный интеллект</li>
+                    <li class="skills__item">Аналитический склад ума</li>
+                    <li class="skills__item">Исполнительность</li>
+                </ul>
+            </div>
+        </div>
+        <div class="close popup__button popup__close maskSmall" href="#">
+            Закрыть
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--dark)" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.92 15.8001C19.73 15.8001 19.54 15.7301 19.39 15.5801L12.87 9.06008C12.39 8.58008 11.61 8.58008 11.13 9.06008L4.61002 15.5801C4.32002 15.8701 3.84002 15.8701 3.55002 15.5801C3.26002 15.2901 3.26002 14.8101 3.55002 14.5201L10.07 8.00008C11.13 6.94008 12.86 6.94008 13.93 8.00008L20.45 14.5201C20.74 14.8101 20.74 15.2901 20.45 15.5801C20.3 15.7201 20.11 15.8001 19.92 15.8001Z"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<script type="module" src="src/js/portfolio.js"></script>
 <script>
     if ('paintWorklet' in CSS) {
         CSS.paintWorklet.addModule('./corner.js');

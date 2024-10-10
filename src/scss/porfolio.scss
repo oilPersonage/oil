@@ -1,0 +1,388 @@
+
+.popup:not(.opened) {
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  transform: translateY(calc(100vh - 80px));
+  backdrop-filter: grayscale(1.1);
+  overflow-y: hidden;
+  transition: 1s cubic-bezier(.61, -0.01, .33, .99);
+
+  &.opened {
+    padding-top: 248px;
+    overflow-y: auto;
+    transform: translateY(0);
+    z-index: 33;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    .popup {
+      &__button svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__wrapper {
+    max-width: 1280px;
+    padding: 0 48px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    background-color: $gray;
+    height: fit-content;
+    padding-bottom: 2rem;
+  }
+
+  &__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+    font-size: 24px;
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    svg {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      background: $l-gray;
+    }
+  }
+
+  &__button {
+    svg {
+      margin-left: 0.5rem;
+      width: 16px;
+      transition: 0.6s ease;
+    }
+  }
+}
+
+.popup__topButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: $gray;
+
+  &:hover {
+    background: $l-gray;
+  }
+}
+
+.portfolio {
+  //&__button {
+  //  position: absolute;
+  //  bottom: 0;
+  //  width: 100vw;
+  //  height: 60px;
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: center;
+  //  background: $l-gray;
+  //}
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+    h3 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  &__skills, &__experience, &__education {
+    margin-bottom: 3rem;
+  }
+
+  &__education {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    p {
+      margin: 0;
+    }
+
+    h4 {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.skills {
+  margin-bottom: 3rem;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+  }
+
+  &__item {
+    background: $l-gray;
+    padding: 0.2rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 14px;
+  }
+}
+
+.exp {
+  &__list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    border-radius: 16px;
+    margin-inline: -1.4rem;
+    //background: white;
+    padding: 2rem 1.4rem;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: white;
+
+      .exp__date {
+        p {
+          &:last-child {
+            bottom: calc(100% - 82px)
+          }
+        }
+      }
+    }
+  }
+
+  &__company {
+    font-weight: bold;
+    margin-bottom: 0.2rem !important;
+
+    span {
+      margin-left: 0.5rem;
+      font-weight: normal;
+      color: $d-gray;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    //font-weight: bold;
+    color: $d-gray;
+    margin-bottom: 0.4rem !important;
+  }
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      //font-size: 14px;
+
+      &:first-child {
+        font-weight: bold;
+      }
+
+      &:last-child {
+        position: absolute;
+        height: fit-content;
+        bottom: 2rem;
+        color: $d-gray;
+        transition: 0.6s cubic-bezier(.61, -0.01, .33, .99);
+      }
+    }
+  }
+
+  &__date, &__content {
+    p {
+      margin: 0;
+      //background: #000;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding-left: 2rem;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+  }
+
+  &__job, &__age {
+    font-size: 12px;
+    //font-weight: bold;
+    background: $l-gray;
+    width: fit-content;
+    padding: 0.1rem 0.6rem;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &__skills {
+    display: flex;
+    gap: 0.2rem;
+    text-align: end;
+
+    li {
+      background: $l-gray;
+      padding: 0.1rem 0.6rem;
+      font-size: 12px;
+    }
+  }
+}
+
+.education {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+
+      p {
+        &:first-child {
+          color: $d-gray;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup__button {
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+  }
+  .popup {
+    transform: translateY(calc(100vh - 64px));
+  }
+  .portfolio {
+    &__info p {
+      font-size: 14px;
+    }
+
+    &__heading {
+      margin-top: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+
+      h3 {
+        font-size: 20px;
+        margin-left: 0;
+      }
+    }
+
+    &__skills, &__experience, &__education {
+      margin-bottom: 2rem;
+    }
+  }
+  .exp {
+    &__skills {
+      flex-wrap: wrap;
+    }
+
+    &__job {
+      display: none;
+    }
+
+    &__company {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.2rem !important;
+
+      span {
+        margin-left: 0;
+      }
+    }
+
+
+    &__item {
+      padding: 0;
+      overflow: visible;
+      margin: 0;
+      flex-direction: column;
+
+      &.mask {
+        --smooth-corners: 0;
+        -webkit-mask-image: none;
+      }
+    }
+
+    &__list {
+      gap: 2rem;
+    }
+
+    &__heading {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__date {
+      flex-direction: row;
+      margin-bottom: 0.5rem;
+
+      p {
+        font-size: 12px;
+      }
+
+      p:last-child {
+        position: static;
+      }
+    }
+
+    &__content {
+      padding-left: 0;
+    }
+  }
+}

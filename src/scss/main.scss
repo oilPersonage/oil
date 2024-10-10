@@ -20,6 +20,16 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+::selection {
+  background: $dark;
+  color: $gray;
+}
+
 
 a {
   font-weight: 500;
@@ -51,7 +61,7 @@ img {
   object-position: bottom;
 }
 
-h1 {
+h1, h2 {
   font-size: 1.6em;
   line-height: 1.1;
   text-align: center;
@@ -70,6 +80,10 @@ h1 {
   }
 }
 
+h2 {
+  opacity: 1;
+}
+
 h3 {
   //color: $dark;
   font: 16px Montserrat;
@@ -81,6 +95,7 @@ h3 {
 
 h4 {
   margin: 0;
+  font-size: 20px;
 }
 
 p {
@@ -241,8 +256,8 @@ section {
   &__imgWrapper {
     position: relative;
     display: flex;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 58vh;
+    max-height: 58vh;
     flex: 1;
     transform-origin: center;
     overflow: hidden;
