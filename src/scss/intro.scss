@@ -17,6 +17,7 @@
   &__logotype {
     position: relative;
     transition: 0.3s;
+    transform: scale(0.6);
 
     &.hide {
       opacity: 0;
@@ -52,10 +53,6 @@
 
   path, rect {
     fill: white;
-  }
-
-  &__animItems {
-    transform: translate(-8px, 15px);
   }
 
   &__oLeft {

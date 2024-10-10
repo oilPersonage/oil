@@ -1,6 +1,3 @@
-import {isInViewport} from "./utils/detectVisibleElement.js";
-import {getTouchDirection} from "./utils/getTouchDirection.js";
-
 const items = [...document.querySelectorAll('.card__content')];
 const cards = [...document.querySelectorAll('.card')];
 
@@ -45,8 +42,15 @@ function calculateInitData() {
 
 calculateInitData()
 
+cards.forEach(el => el.addEventListener("click", () => {
+
+}))
 
 dataItems.forEach((item) => {
+    item.el.addEventListener('click', () => {
+        const link = item.el.getAttribute("data-href");
+        window.open(link, '_blank')
+    })
     if (isMobile) {
         return undefined;
     } else {
