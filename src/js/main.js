@@ -1,7 +1,6 @@
 import './into.js'
 import './heading.js'
 import './card.js'
-import './mobileCorner.js'
 import './popup.js'
 
 
