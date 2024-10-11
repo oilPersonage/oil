@@ -6,11 +6,15 @@ const popupButton = [...document.querySelectorAll(".popup__button")];
 const popupBody = document.querySelector(".popup__content");
 const popupClose = document.querySelectorAll('.popup__close');
 
+let isAnimate = false;
+let touchY = 0;
 let isOpenPortfolio = window.location.hash === "#portfolio";
 const SHOW_POPUP_TOP = 240;
 const HIDE_POPUP_TOP = window.innerHeight;
 
 function showPopup() {
+    if (isAnimate) return;
+    isAnimate = true;
     popup.style.zIndex = 1;
     popupScrollbar.classList.add('show')
     popup.classList.add("opened");
@@ -19,13 +23,17 @@ function showPopup() {
         targets: popupBody,
         translateY: [HIDE_POPUP_TOP, SHOW_POPUP_TOP],
         duration: 1000,
-        easing: 'easeInOutQuint'
-        // easing: 'cubic-bezier(.32,0,.73,1)',
+        easing: 'easeInOutQuint',
+        complete() {
+            isAnimate = false;
+        }
     })
     isOpenPortfolio = !isOpenPortfolio;
 }
 
 function hidePopup() {
+    if (isAnimate) return;
+    isAnimate = true;
     window.location.hash = ''
     popupScrollbar.classList.remove('show')
     popup.classList.remove("opened");
@@ -39,6 +47,7 @@ function hidePopup() {
         duration: 1000,
         easing: 'easeInOutQuint',
         complete() {
+            isAnimate = false;
             popup.style.zIndex = '-1';
         }
     })
@@ -69,5 +78,25 @@ popup.addEventListener('scroll', (e) => {
     popupScrollbar.style.transform = `translateY(${progress * (sH - 120)}px)`;
     if (popup.scrollTop === 0) {
         hidePopup();
+    }
+})
+
+window.addEventListener('wheel', (e) => {
+    if (e.wheelDelta < 0 && !isAnimate && !isOpenPortfolio) {
+        showPopup()
+    }
+})
+window.addEventListener('touchstart', (e) => {
+    touchY = e.touches[0].clientY;
+})
+window.addEventListener('touchcancel', (e) => {
+    touchY = 0;
+})
+window.addEventListener('touchend', (e) => {
+    touchY = 0;
+})
+window.addEventListener('touchmove', (e) => {
+    if (e.touches[0].clientY + 70 < touchY && !isAnimate && !isOpenPortfolio) {
+        showPopup()
     }
 })
