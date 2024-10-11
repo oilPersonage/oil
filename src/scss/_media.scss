@@ -49,11 +49,12 @@
 @media (max-width: 600px) {
   body {
     overflow: visible;
-    padding-bottom: 100px;
+    //padding-bottom: 100px;
   }
   .heading {
     padding: 0 48px;
     margin-top: 68px;
+    margin-bottom: 24px;
 
     &__jobs {
       justify-content: stretch;
@@ -71,14 +72,15 @@
   }
   .works {
     flex-direction: column;
+    gap: 1.5rem;
     padding: 0 48px;
   }
   .card {
-    margin: 0 0 36px;
+    margin: 0px;
 
     &__titleWrapper {
       order: 1;
-      margin-bottom: 4px;
+      margin-bottom: 0px;
     }
 
     &__content {
@@ -86,8 +88,8 @@
     }
 
     &__imgWrapper {
-      min-height: calc(100vw - 96px);
-      max-height: calc(100vw - 96px);
+      min-height: 100px;
+      max-height: 100px;
 
       img {
         object-position: center;
@@ -96,7 +98,7 @@
 
     &__description {
       order: 2;
-      margin: 0 0 16px;
+      margin-bottom: 8px;
       padding: 0;
       background: transparent;
       opacity: 1;
