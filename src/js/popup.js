@@ -45,7 +45,6 @@ function hidePopup() {
         complete() {
             isAnimate = false;
             popup.style.zIndex = '-1';
-            console.log(123)
             isOpenPortfolio = false;
         }
     })
@@ -96,7 +95,9 @@ window.addEventListener('touchend', (e) => {
     touchY = 0;
 })
 window.addEventListener('touchmove', (e) => {
-    if (e.touches[0].clientY + 70 < touchY && !isAnimate && !isOpenPortfolio) {
+    const target = document.body.scrollTop || document.documentElement.scrollTop
+    const progress = document.body.scrollHeight - (target + window.innerHeight)
+    if (e.touches[0].clientY + 70 < touchY && !isAnimate && !isOpenPortfolio && progress === 0) {
         showPopup()
     }
 })
