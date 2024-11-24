@@ -110,10 +110,8 @@
 }
 
 .popup__topButton {
-  position: fixed;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-inline: auto;
+  margin-top: 1rem;
 
   > div {
     position: relative;
@@ -349,6 +347,14 @@
 }
 
 @media screen and (max-width: 600px) {
+  .popup {
+    overscroll-behavior: none;
+  }
+  .space__mobile {
+    display: flex;
+    width: 100%;
+    min-height: 12px;
+  }
   .popup__button {
     font-size: 16px;
     padding: 0.5rem 1.5rem;
@@ -359,10 +365,16 @@
     }
 
     &__topButton {
+      width: calc(100% - 94px);
+      margin: 4rem 48px;
+
       span {
+        min-width: 100%;
+        justify-content: center;
         gap: 0.2rem;
-        padding: 0.4rem 1rem;
+        padding: 1rem 1rem;
         font-size: 16px;
+        background: rgba(0, 0, 0, .05);
       }
 
       svg {

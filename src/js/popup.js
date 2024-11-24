@@ -15,7 +15,7 @@ const HIDE_POPUP_TOP = window.innerHeight;
 function showPopup() {
     if (isAnimate) return;
     isAnimate = true;
-    popup.style.zIndex = 1;
+    popup.style.zIndex = '1';
     popupScrollbar.classList.add('show')
     popup.classList.add("opened");
     window.location.hash = '#portfolio'
@@ -23,35 +23,32 @@ function showPopup() {
         targets: popupBody,
         translateY: [HIDE_POPUP_TOP, SHOW_POPUP_TOP],
         duration: 1000,
-        easing: 'easeInOutQuint',
+        easing: 'easeOutQuint',
         complete() {
             isAnimate = false;
         }
     })
-    isOpenPortfolio = !isOpenPortfolio;
+    isOpenPortfolio = true;
 }
 
 function hidePopup() {
     if (isAnimate) return;
     isAnimate = true;
-    window.location.hash = ''
     popupScrollbar.classList.remove('show')
     popup.classList.remove("opened");
-    popup.scrollTo({
-        top: 0, behavior: 'smooth'
-    });
-
+    history.pushState({}, "", "#")
     anime({
         targets: popupBody,
         translateY: [SHOW_POPUP_TOP, HIDE_POPUP_TOP],
         duration: 1000,
-        easing: 'easeInOutQuint',
+        easing: 'easeOutQuint',
         complete() {
             isAnimate = false;
             popup.style.zIndex = '-1';
+            console.log(123)
+            isOpenPortfolio = false;
         }
     })
-    isOpenPortfolio = !isOpenPortfolio;
 }
 
 if (isOpenPortfolio) {
@@ -65,7 +62,7 @@ popup.addEventListener("click", (e) => {
 });
 popupButton.forEach(el => el.addEventListener("click", (e) => {
     if (isOpenPortfolio) {
-        hidePopup()
+        popup.scrollTo({top: 0, behavior: 'smooth'});
     } else {
         showPopup()
     }
@@ -81,11 +78,14 @@ popup.addEventListener('scroll', (e) => {
     }
 })
 
-window.addEventListener('wheel', (e) => {
-    if (e.wheelDelta < 0 && !isAnimate && !isOpenPortfolio) {
-        showPopup()
-    }
-})
+// document.addEventListener('scroll', function (e) {
+//     const target = document.body.scrollTop || document.documentElement.scrollTop
+//     const progress = document.body.scrollHeight - (target + window.innerHeight)
+//     console.log(progress)
+//     if (progress === 0 && !isAnimate && !isOpenPortfolio) {
+//         showPopup()
+//     }
+// })
 window.addEventListener('touchstart', (e) => {
     touchY = e.touches[0].clientY;
 })
