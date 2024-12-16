@@ -112,9 +112,22 @@
 .popup__topButton {
   margin-inline: auto;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
 
   > div {
     position: relative;
+    flex: 1;
+  }
+
+  .social__item {
+    width: 32px;
+    max-width: 32px;
+    height: 32px;
+
+    svg {
+      width: 32px;
+    }
   }
 
   span {
@@ -128,8 +141,11 @@
     background: $gray;
   }
 
-  &:hover span {
-    background: $l-gray;
+  .popup__openBtn {
+
+    &:hover span {
+      background: $l-gray;
+    }
   }
 }
 

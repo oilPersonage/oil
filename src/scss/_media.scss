@@ -51,6 +51,24 @@
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
+  .exchange {
+    padding: 72px 12px;
+  }
+  #exchange {
+    width: 100%;
+  }
+
+  .popup__topButton {
+    .social__item {
+      width: 56px;
+      max-width: 56px;
+      height: 56px;
+
+      svg {
+        width: 50px;
+      }
+    }
+  }
   body {
     //overflow: visible;
     //max-height: 100%;
@@ -100,6 +118,7 @@
         object-position: center;
       }
     }
+
 
     &__description {
       order: 2;
