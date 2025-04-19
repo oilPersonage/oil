@@ -74,6 +74,9 @@ onUnmounted(() => {
   font-size: 14px;
   width: fit-content;
   position: relative;
+  @media screen and (max-width: 480px) {
+    min-width: 160px;
+  }
 }
 .select-button {
   padding: 8px 12px;

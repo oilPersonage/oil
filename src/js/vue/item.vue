@@ -233,12 +233,21 @@ defineProps<{ city: TCity }>();
     padding: 4px 12px;
     opacity: 0;
     pointer-events: none;
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
   }
 }
 .city-content {
   display: grid;
   grid-template-columns: 320px 240px 1fr;
   gap: 32px;
+
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
 .grey {
   color: $d-gray;
@@ -250,6 +259,16 @@ defineProps<{ city: TCity }>();
   margin: 0 -24px;
   transition: 0.12s ease;
   scroll-margin-top: 112px;
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 16px 0;
+
+    &:hover {
+      background: transparent !important;
+    }
+  }
   &:hover {
     background: $ll-gray;
   }

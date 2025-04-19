@@ -76,9 +76,14 @@ arraData.forEach((country) => {
 .calendar {
   width: 100%;
   margin-bottom: 24px;
+  @media (max-width: 480px) {
+    padding: 0 24px;
+  }
   .months {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    max-width: calc(100vw - 48px);
+    overflow-x: auto;
     gap: 2px;
   }
   .month {
@@ -93,6 +98,9 @@ arraData.forEach((country) => {
       padding: 1px 4px;
       font-size: 14px;
       position: relative;
+      @media screen and (max-width: 480px) {
+        min-width: 100px;
+      }
       &-content {
         position: absolute;
         z-index: 2;
@@ -105,6 +113,9 @@ arraData.forEach((country) => {
         pointer-events: none;
         color: white;
         text-align: start;
+        @media screen and (max-width: 480px) {
+          display: none;
+        }
       }
       &:hover {
         .month-city-content {

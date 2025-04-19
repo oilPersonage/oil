@@ -65,9 +65,18 @@ const opened = ref(props.defOpened || false);
   margin-bottom: 6px;
   margin: 0 -24px 8px;
   background: $gray;
+  @media screen and (max-width: 480px) {
+    margin: 0 24px;
+  }
   &-wrapper {
     background: white;
     padding: 12px 24px;
+
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
   }
   svg {
     transform: rotate(180deg);
@@ -85,6 +94,12 @@ const opened = ref(props.defOpened || false);
     gap: 20px;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      align-items: flex-start;
+    }
   }
 }
 
@@ -96,6 +111,10 @@ const opened = ref(props.defOpened || false);
   p {
     font-size: 14px;
     color: $d-gray;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none;
   }
 }
 .box {
@@ -117,6 +136,9 @@ const opened = ref(props.defOpened || false);
   //   grid-template-rows: 0fr;
   gap: 32px;
   transition: 0.4s ease-out;
+  @media screen and (max-width: 480px) {
+    margin: 0 24px;
+  }
   &.opened {
     transition: 0.4s ease-in;
     grid-template-rows: 1fr;
