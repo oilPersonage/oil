@@ -72,6 +72,7 @@ function changeCountry(ev) {
 	@media screen and (max-width: 480px) {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+		margin: 0 24px;
 	}
 }
 .list {
@@ -82,6 +83,9 @@ function changeCountry(ev) {
 	width: 100%;
 	max-width: 1280px;
 	margin: 0 auto;
+	@media screen and (max-width: 480px) {
+		// padding: 0 24px;
+	}
 }
 h2 {
 	margin-bottom: 48px;

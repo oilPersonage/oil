@@ -76,9 +76,14 @@ arraData.forEach((country) => {
 .calendar {
 	width: 100%;
 	margin-bottom: 24px;
-	@media (max-width: 480px) {
-		padding: 0 24px;
+
+	@media (max-width: 1240px) {
+		overflow-y: auto;
+		margin-inline: 24px;
 	}
+	// @media (max-width: 480px) {
+	// 	padding: 0 24px;
+	// }
 	.months {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
