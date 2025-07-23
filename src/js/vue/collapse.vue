@@ -51,7 +51,7 @@ const opened = ref(props.defOpened || false);
 </script>
 
 <style lang="scss" scoped>
-@import "src/scss/_variables.scss";
+@import "/src/scss/variables.scss";
 
 .country {
 	top: 0px;

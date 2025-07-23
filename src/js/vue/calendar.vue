@@ -72,7 +72,7 @@ arraData.forEach((country) => {
 </script>
 
 <style lang="scss" scoped>
-@import "src/scss/_variables.scss";
+@import "/src/scss/variables.scss";
 .calendar {
 	width: 100%;
 	margin-bottom: 24px;
