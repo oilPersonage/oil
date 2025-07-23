@@ -73,6 +73,7 @@ function changeCountry(ev) {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		margin: 0 24px;
+		gap: 12px;
 	}
 }
 .list {

@@ -78,8 +78,7 @@ arraData.forEach((country) => {
 	margin-bottom: 24px;
 
 	@media (max-width: 1240px) {
-		overflow-y: auto;
-		margin-inline: 24px;
+		padding-inline: 24px;
 	}
 	// @media (max-width: 480px) {
 	// 	padding: 0 24px;
@@ -89,6 +88,9 @@ arraData.forEach((country) => {
 		grid-template-columns: repeat(12, 1fr);
 		max-width: calc(100vw - 48px);
 		gap: 2px;
+		@media screen and (max-width: 1240px) {
+			overflow-y: auto;
+		}
 	}
 	.month {
 		p {
