@@ -1,10 +1,10 @@
-
 .popup {
   position: fixed;
   inset: 0;
   //z-index: -1;
   overflow-y: hidden;
-  transition: backdrop-filter 1s cubic-bezier(.61, -0.01, .33, .99), background 1s ease;
+  transition: backdrop-filter 1s cubic-bezier(0.61, -0.01, 0.33, 0.99),
+    background 1s ease;
   /* width */
   &::-webkit-scrollbar {
     width: 0px;
@@ -67,6 +67,9 @@
     max-width: 1280px;
     padding: 0 48px;
     margin: 0 auto;
+    @media screen and (max-width: 480px) {
+      padding: 0 24px;
+    }
   }
 
   &__content {
@@ -142,7 +145,6 @@
   }
 
   .popup__openBtn {
-
     &:hover span {
       background: $l-gray;
     }
@@ -185,7 +187,9 @@
     }
   }
 
-  &__skills, &__experience, &__education {
+  &__skills,
+  &__experience,
+  &__education {
     margin-bottom: 3rem;
   }
 
@@ -241,7 +245,7 @@
       .exp__date {
         p {
           &:last-child {
-            bottom: calc(100% - 82px)
+            bottom: calc(100% - 82px);
           }
         }
       }
@@ -283,12 +287,13 @@
         height: fit-content;
         bottom: 2rem;
         color: $d-gray;
-        transition: 0.6s cubic-bezier(.61, -0.01, .33, .99);
+        transition: 0.6s cubic-bezier(0.61, -0.01, 0.33, 0.99);
       }
     }
   }
 
-  &__date, &__content {
+  &__date,
+  &__content {
     p {
       margin: 0;
       //background: #000;
@@ -307,7 +312,8 @@
     margin-bottom: 1rem;
   }
 
-  &__job, &__age {
+  &__job,
+  &__age {
     font-size: 12px;
     //font-weight: bold;
     background: $l-gray;
@@ -342,7 +348,6 @@
 }
 
 .education {
-
   &__list {
     display: flex;
     flex-direction: column;
@@ -390,7 +395,7 @@
         gap: 0.2rem;
         padding: 1rem 1rem;
         font-size: 16px;
-        background: rgba(0, 0, 0, .05);
+        background: rgba(0, 0, 0, 0.05);
       }
 
       svg {
@@ -414,7 +419,9 @@
       }
     }
 
-    &__skills, &__experience, &__education {
+    &__skills,
+    &__experience,
+    &__education {
       margin-bottom: 2rem;
     }
   }
@@ -436,7 +443,6 @@
         margin-left: 0;
       }
     }
-
 
     &__item {
       padding: 0;
