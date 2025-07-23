@@ -20,7 +20,7 @@ const opened = ref(false);
 </script>
 
 <style lang="scss" scoped>
-@import "/src/scss/variables.scss";
+@import "/src/scss/_variables.scss";
 .collapse-text,
 .grey {
 	color: $d-gray;

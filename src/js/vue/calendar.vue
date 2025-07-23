@@ -9,7 +9,7 @@
 							@click="
 								$emit('selectCity', { city: city.name, country: city.country })
 							"
-							class=""
+							class="button"
 							v-if="city.name"
 						>
 							<div class="month-city-name">{{ city.name }}</div>
@@ -72,7 +72,14 @@ arraData.forEach((country) => {
 </script>
 
 <style lang="scss" scoped>
-@import "/src/scss/variables.scss";
+@import "/src/scss/_variables.scss";
+
+.button {
+	color: $dark;
+	&:visited {
+		color: $dark;
+	}
+}
 .calendar {
 	width: 100%;
 	margin-bottom: 24px;

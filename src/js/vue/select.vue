@@ -68,7 +68,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "/src/scss/variables.scss";
+@import "/src/scss/_variables.scss";
 .select {
 	min-width: 220px;
 	font-size: 14px;
